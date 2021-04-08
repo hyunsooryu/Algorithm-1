@@ -1,17 +1,24 @@
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>출력결과</title>
-    </head>
-    <body>
-        <script>
-            function solution(a, b, c){
-                let answer;
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(a, b, c) {
+        let answer = "YES",
+          max = 0;
+        let tot = a + b + c;
+        if (a > b) max = a;
+        else max = b;
+        if (max < c) max = c;
 
-                return answer;
-            }
+        if (tot - max <= 0) answer = "NO";
 
-            console.log(solution(13, 33, 17));
-        </script>
-    </body>
+        return answer;
+      }
+
+      console.log(solution(13, 33, 17));
+    </script>
+  </body>
 </html>
