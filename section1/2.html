@@ -6,14 +6,17 @@
   <body>
     <script>
       function solution(a, b, c) {
-        let answer = "YES",
-          max = 0;
+        let answer = "YES";
+        let max = 0;
         let tot = a + b + c;
+
+        // max값 찾기
         if (a > b) max = a;
         else max = b;
         if (max < c) max = c;
 
-        if (tot - max <= 0) answer = "NO";
+        // 긴 변이 나머지 변의 합 보다 크거나 같으면 삼각형 성립 안됨
+        if (tot - max <= max) answer = "NO";
 
         return answer;
       }
