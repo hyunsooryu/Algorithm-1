@@ -6,12 +6,31 @@
   <body>
     <script>
       function solution(arr) {
-        let answer = [];
+        let answer = "";
+        let odd = [];
+        let sum = 0;
+        let min = Number.MAX_SAFE_INTEGER;
+
+        // arr 배열에서 홀수인 것만 odd에 넣기
+        // odd.push()가 배열에 넣는 함수
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] % 2 == 1) {
+            odd.push(arr[i]);
+            sum += arr[i]; // 합 구하기
+          }
+        }
+
+        // odd 배열에서 최솟값 구하기
+        for (let j = 0; j < odd.length; j++) {
+          if (odd[j] < min) min = odd[j];
+        }
+
+        answer = sum + "\n" + min;
 
         return answer;
       }
 
-      arr = [12, 77, 38, 41, 53, 92, 85];
+      arr = [12, 77, 38, 41, 53, 92, 85, 1];
       console.log(solution(arr));
     </script>
   </body>
