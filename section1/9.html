@@ -8,10 +8,14 @@
       function solution(s) {
         let answer = "";
 
+        for (let i = 0; i < str.length; i++) {
+          if (str.charAt(i) == "A") answer += "#";
+          else answer += str.charAt(i);
+        }
         return answer;
       }
 
-      let str = "BANANA";
+      let str = "BAANDFEANANA";
       console.log(solution(str));
     </script>
   </body>
