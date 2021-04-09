@@ -6,12 +6,15 @@
   <body>
     <script>
       function solution(s) {
-        let answer = "";
+        let answer = s;
+        answer = answer.replaceAll(/A/g, "#"); //g는 global을 의미, "A"를 만날 때마다 함수 호출
 
-        for (let i = 0; i < str.length; i++) {
-          if (str.charAt(i) == "A") answer += "#";
-          else answer += str.charAt(i);
-        }
+        //let answer = "";
+        //for (let i = 0; i < str.length; i++) {
+        //  if (str.charAt(i) == "A") answer += "#";
+        //  else answer += str.charAt(i);
+        //}
+
         return answer;
       }
 
