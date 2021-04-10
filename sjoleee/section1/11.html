@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(s) {
+            let answer = 0;
+            let capital = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            for (let i = 0; i < str.length; i++) {
+                for (let j = 0; j < capital.length; j++) {
+                    if (str[i] == capital[j]) answer += 1;
+                }
+            }
+
+            return answer;
+        }
+
+        let str = "KoreaTimeGood";
+        console.log(solution(str));
+    </script>
+</body>
+
+</html>
