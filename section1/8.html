@@ -7,6 +7,27 @@
     <script>
       function solution(arr) {
         let answer = arr;
+        let sum = 0;
+
+        for (let x of answer) {
+          sum += x;
+        }
+        console.log(sum);
+
+        for (let i = 0; i < 8; i++) {
+          for (let j = i + 1; j < 9; j++) {
+            if (sum - (answer[i] + answer[j]) == 100) {
+              answer.splice(j, 1);
+              answer.splice(i, 1);
+            }
+          }
+        }
+
+        let new_sum = 0;
+        for (let x of answer) {
+          new_sum += x;
+        }
+        console.log(new_sum);
 
         return answer;
       }
