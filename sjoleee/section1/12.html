@@ -10,11 +10,11 @@
         function solution(s) {
             let arr = [];
             let capital = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            let small = "abcdefghijklmnopqrstuvwxyz"
-            for (i = 0; i < str.length; i++) {
+            let small = "abcdefghijklmnopqrstuvwxyz";
+            for (i = 0; i < s.length; i++) {
                 for (j = 0; j < capital.length; j++) {
-                    if (str[i] == capital[j]) arr.push(capital[j]);
-                    else if (str[i] == small[j]) arr.push(capital[j]);
+                    if (s[i] == capital[j]) arr.push(capital[j]);
+                    else if (s[i] == small[j]) arr.push(capital[j]);
                 }
             }
             let answer = arr.join('');
