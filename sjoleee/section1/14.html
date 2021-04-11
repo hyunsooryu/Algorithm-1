@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(s) {
+            let answer = "";
+            for (let i = 0; i < s.length - 1; i++) {
+                if (s[i].length < s[i + 1].length) answer = s[i + 1];
+                else answer = s[i];
+            }
+
+            return answer;
+        }
+        let str = ["teacher", "time", "student", "beautiful", "good"];
+        console.log(solution(str));
+    </script>
+</body>
+
+</html>
