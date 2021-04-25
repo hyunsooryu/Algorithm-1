@@ -1,0 +1,119 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(s, t) {
+            let s_backward = s.split('').reverse().join('');
+            let answer = [];
+            let answer_forward = [];
+            let answer_backward = [];
+            let count = 0;
+            for (let i = 0; i < s.length; i++) {
+                let count = 0;
+                for (let j = i; j < s.length; j++) {
+                    if (s[j] != t) {
+                        count += 1;
+                        if (i == s.length - 1)
+                        else {
+                            answer_forward.push(count);
+                            break;
+                        }
+                    }
+                }
+                console.log(answer_forward)
+
+                for (let m = 0; m < s_backward.length; m++) {
+                    let count = 0;
+                    for (let n = m; n < s_backward.length; n++) {
+                        if (s_backward[n] != t) count += 1;
+                        else {
+                            answer_backward.push(count);
+                            break;
+                        }
+                    }
+                }
+                let answer_backward_edit = answer_backward.reverse()
+
+                console.log(answer_backward)
+
+                for (let p = 0; p < s.length; p++) {
+                    if (answer_forward[p] > answer_backward_edit[p]) answer.push(answer_backward_edit[p]);
+                    else(answer.push(answer_forward[p]))
+                }
+
+
+
+
+                /* 현수형 풀이
+            
+                let string = "teachermode";
+        let char = "e";
+        let len = string.length;
+        let ans = [];
+        //왼쪽 
+
+        //오른쪽
+
+        //정보 
+        //변수
+
+        for(let i = 0; i < len; i++){
+ 
+            //1.왼쪽
+            let leftDistance = 0;
+            let meetLeft = false;
+            for(let j = i; j >= 0; j--){
+                if(string[j] == char){
+                    leftDistance = (i - j);
+                    meetLeft = true;
+                    break;
+                }
+            }
+            //2.오른쪽
+            let rightDistance = 0;
+            let meetRight = false;
+            for(let j = i; j < len; j++){
+                if(string[j] == char){
+                    rightDistance = (j - i);
+                    meetRight = true;
+                    break;
+                }
+            }
+            //왼쪽 만 맞난경우
+            if(meetLeft == true && meetRight == false){
+                ans.push(leftDistance);
+            }
+
+            //오른쪽만 만난경우
+            else if(meetLeft == false && meetRight == true){
+                ans.push(rightDistance);
+            }
+
+            //양쪽 다 안만난 경우
+            else if(meetLeft == false && meetRight == false){
+                ans.push(0);
+            }
+
+            //양쪽 다 만난 경우 
+            else if(meetLeft == true && meetRight == true){
+                ans.push((rightDistance < leftDistance) ? rightDistance : leftDistance );
+            }
+        }
+        
+        console.log(ans);*/
+
+
+                return answer;
+            }
+
+            let str = "teachermode";
+            console.log(solution(str, 'e'));
+    </script>
+</body>
+
+</html>

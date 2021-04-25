@@ -8,6 +8,8 @@
 <body>
     <script>
         function solution(arr) {
+
+
             // 모든 arr[i]에 앞뒤로 0 추가
             // unshift 앞에추가, push 뒤에추가
             let arr_zero = [];
@@ -22,7 +24,7 @@
             arr.unshift(arr_zero);
 
             //비교하기*4
-
+            //소스트리
             let answer = 0;
 
             for (let m = 1; m <= arr.length - 2; m++) {
@@ -35,7 +37,6 @@
                     if (big == arr[m][n]) answer += 1;
                 }
             }
-
 
 
             return answer;

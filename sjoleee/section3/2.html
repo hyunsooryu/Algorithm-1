@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(s) {
+            let answer = "YES";
+            let abc = "abcdefghijklmnopqrstuvwxyz";
+            let str2 = s.toLowerCase();
+            let str3 = "";
+            for (let i = 0; i < str2.length; i++) {
+                for (let j = 0; j < abc.length; j++) {
+                    if (str2[i] == abc[j]) str3 + s[i];
+                    break;
+                }
+            }
+            let length = str3.length - 1;
+            for (let m = 0; m < length; m++) {
+                if (str3[m] != str3[length - m]) answer = "NO";
+                break;
+            }
+
+            return answer;
+        }
+
+        let str = "found7, time: study; Yduts; emit, 7Dnuof";
+        console.log(solution(str));
+    </script>
+</body>
+
+</html>
