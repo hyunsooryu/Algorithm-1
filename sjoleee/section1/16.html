@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(s) {
+            let answer = "";
+            let object = {};
+            for (let i = 0; i < s.length; i++) {
+                if (object[s[i]] != true) {
+                    answer += s[i];
+                    object[s[i]] = true;
+                }
+            }
+            return answer;
+        }
+        console.log(solution("ksekkset"));
+    </script>
+</body>
+
+</html>

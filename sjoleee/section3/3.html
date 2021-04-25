@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(str) {
+            let answer = "";
+            let num = "0123456789";
+            for (let i = 0; i < str.length; i++) {
+                for (let j = 0; j < num.length; j++) {
+                    if (String(str[i]) == String(num[j])) {
+                        answer += String(num[j]);
+                        break;
+                    }
+                }
+            }
+
+            return parseInt(answer);
+        }
+
+        let str = "g0en2T0s8eSoft";
+        console.log(solution(str));
+    </script>
+</body>
+
+</html>

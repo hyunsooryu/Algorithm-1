@@ -1,0 +1,22 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(s) {
+            let arr = [];
+            if (s.length % 2 == 0) {
+                arr.push(s[s.length / 2] && s[s.length / 2 + 1]);
+            } else arr.push(s[Math.floor(s.length / 2)]);
+            let answer = arr.join('');
+            return answer;
+        }
+        console.log(solution("study"));
+    </script>
+</body>
+
+</html>

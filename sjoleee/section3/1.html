@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(s) {
+            let n = s.length - 1;
+            let answer = "YES";
+            let str2 = s.toLowerCase();
+            for (let i = 0; i < n; i++) {
+                if (str2[i] != str2[n - i]) answer = "NO";
+                break;
+            }
+
+            return answer;
+        }
+
+        let str = "aBcBA";
+        console.log(solution(str));
+    </script>
+</body>
+
+</html>
