@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = "";
+
+        if (s.length % 2 == 0) {
+          answer = s.charAt(s.length / 2 - 1) + s.charAt(s.length / 2);
+          console.log("짝수");
+        } else {
+          answer = s.charAt(s.length / 2);
+          console.log("홀수");
+        }
+
+        return answer;
+      }
+      console.log(solution("studys"));
+    </script>
+  </body>
+</html>
