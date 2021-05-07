@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(m, product) {
+            let sum = [];
+            for (let i = 0; i < arr.length; i++) {
+                sum[i] = arr[i][0] + arr[i][1]
+            }
+            sum.sort(function(a, b) {
+                return a - b;
+            });
+            let cnt = 0;
+            for (let n = 0; n < sum.length; n++) {
+                if (m - sum[n] <= 0) {
+                    break;
+                }
+                m -= sum[n];
+                cnt += 1
+            }
+            let half_sum = [];
+            for (let i = 0; i < arr.length; i++) {
+                half_sum[i] = arr[i][0] / 2 + arr[i][1]
+            }
+            half_sum.sort(function(a, b) {
+                return a - b;
+            });
+            let half_cnt = 0;
+            for (let p = 0; p < half_sum.length; p++) {
+                if (m - half_sum[p] <= 0) {
+                    break;
+                }
+                m -= sum[p];
+                half_cnt += 1
+            }
+            answer = cnt + half_cnt;
+            return answer;
+        }
+
+        let arr = [
+            [6, 6],
+            [2, 2],
+            [4, 3],
+            [4, 5],
+            [10, 3]
+        ];
+        console.log(solution(28, arr));
+    </script>
+</body>
+
+</html>
