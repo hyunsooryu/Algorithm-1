@@ -8,22 +8,30 @@
 <body>
     <script>
         function solution(test) {
-            let check = [];
-            let pre_answer = [];
-            for (let i = 0; i < arr[0].length; i++) {
-                for (let j = 0; j < arr[0].length; j++) {
-                    check.push([i, j])
+            let student = [];
+            let answer = 0;
+            for (let i = 1; i < arr[0].length + 1; i++) {
+                for (let j = 1; j < arr[0].length + 1; j++) {
+                    student.push([i, j])
                 }
             }
-            for (let p = 0; p < arr.length; p++) {
-                for (let m = 0; m < arr.length; m++) {
-                    for (let n = 0; n < check.length; n++) {
-                        if (arr[p][check[n][0]] < arr[m][check[n][1]]) pre_answer.push(check[n])
+
+            let cnt = 0;
+            for (let m = 0; m < student.length; m++) {
+                for (let n = 0; n < arr.length; n++) {
+                    if (arr[n].indexOf(student[m][0]) < arr[n].indexOf(student[m][1])) {
+                        cnt += 1;
                     }
                 }
+                if (cnt == 3) {
+                    answer += 1
+                    cnt = 0
+                } else {
+                    cnt = 0
+                }
             }
-            let answer = pre_answer.length
             return answer;
+
         }
 
         let arr = [
