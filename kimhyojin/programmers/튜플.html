@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let s = "{{2},{2,1},{2,1,3},{2,1,3,4}}";
+      let answer = [];
+      let splitS = s.split("},{");
+      console.log(splitS.length);
+
+      console.log("splitS : " + splitS); //  {{2,2,1,2,1,3,2,1,3,4}}
+      for (let i = 0; i < splitS.length; i++) {
+        if (splitS[i].includes("{{")) {
+          splitS[i] = splitS[i].substring(2);
+        } else if (splitS[i].includes("}}")) {
+          splitS[i] = splitS[i].substring(0, splitS[i].length - 2);
+        }
+      }
+      console.log("splitS : " + splitS); // 2,2,1,2,1,3,2,1,3,4
+      console.log("splitS[0] : " + splitS[0]);
+      console.log("splitS[1] : " + splitS[1]);
+      console.log("splitS[2] : " + splitS[2]);
+      console.log("splitS[3] : " + splitS[3]);
+      console.log("splitS_S : " + typeof splitS);
+      let splitS_S = [];
+      for (let i = 0; i < splitS.length; i++) {
+        splitS_S.push(splitS[i].split(","));
+      }
+
+      console.log("splitS_S : " + splitS_S);
+      console.log("splitS_S : " + typeof splitS_S);
+      console.log("splitS_S[0] : " + splitS_S[0]);
+      console.log("splitS_S[1] : " + splitS_S[1]);
+      console.log("splitS_S[2] : " + splitS_S[2]);
+      console.log("splitS_S[3] : " + splitS_S[3]);
+      console.log(splitS_S[3].length);
+
+      let arr = [];
+      for (let i = 0; i < splitS_S.length; i++) {
+        arr.push(splitS_S[i]);
+      }
+      console.log("arr : " + arr);
+      console.log("arr[3] : " + arr[3]);
+      console.log(arr.length);
+
+      let complement = function (first, second) {
+        // first: set, second: set
+        return first.filter((value) => !second.includes(value)); // 중복되는 것 제거하면 차집합
+      };
+
+      answer.push(arr[0]);
+      for (let i = 0; i < arr.length; i++) {
+        answer.push(complement(arr[i], arr[i + 1]));
+      }
+      console.log(answer);
+    </script>
+  </body>
+</html>

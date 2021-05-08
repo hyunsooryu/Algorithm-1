@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let weights = [50, 82, 75, 120];
+      let head2head = ["NLWL", "WNLL", "LWNW", "WWLN"];
+      let answer = [1, 2, 3, 4];
+      let realAnswer = [];
+      let win = [0, 0, 0, 0];
+      let winHeavy = [0, 0, 0, 0];
+      let winRatio = [0, 0, 0, 0];
+      let n = weights.length;
+      let arr = new Array(4);
+
+      for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n; j++) {
+          if (head2head[i][j] == "W") {
+            win[i] += 1;
+            if (weights[i] < weights[j]) {
+              winHeavy[i] += 1;
+            }
+          }
+        }
+        winRatio[i] = win[i] / (n - 1);
+      }
+
+      for (let i = 0; i < n; i++) {
+        arr[i] = new Array(4);
+        arr[i].push(answer[i]);
+        arr[i].push(winRatio[i]);
+        arr[i].push(winHeavy[i]);
+        arr[i].push(weights[i]);
+      }
+
+      let boxer1 = {
+        num: arr[0][4],
+        wRatio: arr[0][5],
+        wHeavy: arr[0][6],
+        weight: arr[0][7],
+      };
+      let boxer2 = {
+        num: arr[1][4],
+        wRatio: arr[1][5],
+        wHeavy: arr[1][6],
+        weight: arr[1][7],
+      };
+      let boxer3 = {
+        num: arr[2][4],
+        wRatio: arr[2][5],
+        wHeavy: arr[2][6],
+        weight: arr[2][7],
+      };
+      let boxer4 = {
+        num: arr[3][4],
+        wRatio: arr[3][5],
+        wHeavy: arr[3][6],
+        weight: arr[3][7],
+      };
+
+      let boxer = [boxer1, boxer2, boxer3, boxer4];
+
+      // 승률 높은순서
+      boxer.sort(function (a, b) {
+        return a.wRatio > b.wRatio ? -1 : a.wRatio < b.wRatio ? 1 : 0;
+      });
+
+      console.log(boxer);
+      for (let i = 0; i < n; i++) {
+        console.log(boxer[i].num);
+        answer[i] = boxer[i].num;
+      }
+      console.log(answer);
+
+      for (let i = 0; i < n; i++) {
+        console.log(boxer[i].num);
+        answer[i] = boxer[i].num;
+      }
+
+      // 승률 동일할 때 무거운 복서를 이긴 횟수 많은 복서 순서 내림차순
+      for (let i = 0; i < n; i++) {
+        if (boxer[i].wRatio == boxer[i + 1].wRatio) {
+          boxer.sort(function (a, b) {
+            return a.wHeavy > b.wHeavy ? -1 : a.wHeavy < b.wHeavy ? 1 : 0;
+          });
+        }
+      }
+      console.log(boxer);
+      //console.log(answer);
+    </script>
+  </body>
+</html>
