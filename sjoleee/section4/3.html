@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(test) {
+            let student = [];
+            let answer = 0;
+            for (let i = 1; i < arr[0].length + 1; i++) {
+                for (let j = 1; j < arr[0].length + 1; j++) {
+                    student.push([i, j])
+                }
+            }
+
+            let cnt = 0;
+            for (let m = 0; m < student.length; m++) {
+                for (let n = 0; n < arr.length; n++) {
+                    if (arr[n].indexOf(student[m][0]) < arr[n].indexOf(student[m][1])) {
+                        cnt += 1;
+                    }
+                }
+                if (cnt == 3) {
+                    answer += 1
+                    cnt = 0
+                } else {
+                    cnt = 0
+                }
+            }
+            return answer;
+
+        }
+
+        let arr = [
+            [3, 4, 1, 2],
+            [4, 3, 2, 1],
+            [3, 1, 4, 2]
+        ];
+        console.log(solution(arr));
+    </script>
+</body>
+
+</html>
