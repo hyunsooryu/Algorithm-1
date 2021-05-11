@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function solution(x) {
+        var answer = true;
+        x = x.toString();
+        var l = x.length;
+        l = Number(l);
+        x = Number(x);
+        console.log(l);
+        console.log(typeof l);
+        console.log(l == 4);
+        console.log(Number(x %
+        (Math.floor(x / 1000) +
+          Math.floor(x / 100) +
+          Math.floor(x / 10) +
+          (x % 10))));
+        if (l == 1) {
+          answer = true;
+          console.log("길이1");
+        } else if (l == 2) {
+          if (x % (Math.floor(x / 10) + (x % 10)) == 0) {
+            answer = true;
+            console.log("길이2");
+          }
+        } else if (l == 3) {
+          if (x % (Math.floor(x / 100) + Math.floor(x / 10) + (x % 10)) == 0) {
+            answer = true;
+            console.log("길이3");
+          }
+        } else if (l == 4) {
+          if (
+            Number(x %
+              (Math.floor(x / 1000) +
+                Math.floor(x / 100) +
+                Math.floor(x / 10) +
+                (x % 10))) ==
+            0
+          ) {
+            answer = true;
+            console.log("길이4");
+          }
+        } else if (l == 5) {
+          answer = true;
+        }
+
+        return answer;
+      }
+
+      console.log("8855 : " + solution(8855));
+      console.log(" ");
+      console.log(" ");
+      console.log(" ");
+      console.log(" ");
+      console.log(12 / 10 + (12 % 10));
+      console.log(Math.floor(17 / 10));
+      console.log(17 % 10);
+      console.log(17 % (Math.floor(17 / 10) + (17 % 10)));
+      let x = 8855;
+      console.log(typeof x);
+      x = x.toString();
+      console.log(typeof x);
+      var l = x.length;
+      x = Number(x);
+      console.log(typeof x);
+
+      console.log(l);
+      console.log(
+        x %
+          (Math.floor(x / 1000) +
+            Math.floor(x / 100) +
+            Math.floor(x / 10) +
+            (x % 10)) ===
+          0
+      );
+    </script>
+  </body>
+</html>

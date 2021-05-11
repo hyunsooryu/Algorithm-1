@@ -5,17 +5,18 @@
   </head>
   <body>
     <script>
-      function solution(s, t) {
+      function solution(s) {
         let answer = 0;
-        for (let i = 0; i < str.length; i++) {
-          if (str.charAt(i) == t) answer++;
+        for (let i of str) {
+          if (i === i.toUpperCase()) answer++;
         }
 
         return answer;
       }
 
-      let str = "COMPUTERPROGRAMMING";
-      console.log(solution(str, "C"));
+      let str = "ILoveSangJoLee";
+      console.log(solution(str));
     </script>
   </body>
 </html>
+//

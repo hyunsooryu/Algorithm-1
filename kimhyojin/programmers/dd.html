@@ -1,0 +1,18 @@
+//let weights = [50, 82, 75, 120];
+//let head2head = ["NLWL", "WNLL", "LWNW", "WWLN"];
+
+
+let weigths = [60, 70, 60];
+let head2head = ["NNN", "NNN", "NNN"];
+
+
+
+for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      if (arr[i][5] < arr[j][5]) {
+        let tmp = arr[i][5];
+        arr[i][5] = arr[j][5];
+        arr[j][5] = tmp;
+      }
+    }
+  }

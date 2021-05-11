@@ -7,15 +7,13 @@
     <script>
       function solution(s) {
         let answer = "";
-        for (let x of s) {
-          if (x == x.toLocaleUpperCase()) answer += x.toLocaleLowerCase();
-          else answer += x.toLocaleUpperCase();
-        }
-
+        answer = str.toLocaleUpperCase();
         return answer;
       }
 
-      console.log(solution("StuDY"));
+      let str = "ItisTimeToStudy";
+      console.log(solution(str));
     </script>
   </body>
 </html>
+//
