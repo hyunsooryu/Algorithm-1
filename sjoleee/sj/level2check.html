@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let clothes = [
+            ["yellowhat", "headgear"],
+            ["bluesunglasses", "eyewear"],
+            ["green_turban", "headgear"],
+            ["bluesunglasses2", "eyewear"],
+            ["bluesunglasses3", "eyewear3"],
+            ["bluesunglasses4", "eyewear3"]
+        ]
+
+
+        let list = [];
+        let sortList = [];
+        let arrList = [];
+        for (let i = 0; i < clothes.length; i++) {
+            list.push(clothes[i][1])
+        }
+
+        for (let j = 0; j < list.length; j++) {
+            if (sortList.indexOf(list[j]) == -1) sortList.push(list[j])
+        }
+        console.log(sortList)
+        for (let k = 0; k < sortList.length; k++) {
+            arrList[k] = [];
+            for (let m = 0; m < clothes.length; m++) {
+                if (sortList[k] == clothes[m][1]) arrList[k].push(clothes[m][0])
+            }
+        }
+        console.log(arrList)
+        let answer = 0;
+        if (arrList.length > 1) {
+            answer = 1;
+            for (let n = 0; n < sortList.length; n++) {
+                answer *= arrList[n].length
+            }
+            answer += clothes.length
+            if (arrList.length > 2) {
+                answer = 1;
+                for (let p = 0; p < sortList.length; p++) {
+                    answer *= (arrList[p].length + 1)
+                }
+                answer -= 1
+            }
+        }
+
+        console.log(answer)
+    </script>
+</body>
+
+</html>
