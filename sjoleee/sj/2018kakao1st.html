@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let n = 6
+        let arr1 = [46, 33, 33, 22, 31, 50]
+        let arr2 = [27, 56, 19, 14, 14, 10]
+        let arr1_2 = [];
+        let arr2_2 = [];
+        for (let i = 0; i < n; i++) {
+            arr1_2[i] = [];
+            while (true) {
+                if (arr1[i] == 1) {
+                    arr1_2[i].unshift(1)
+                    break;
+                } else if (arr1[i] == 0) {
+                    arr1_2[i].unshift(0)
+                    break;
+                } else {
+                    arr1_2[i].unshift(arr1[i] % 2)
+                    arr1[i] = Math.floor(arr1[i] / 2)
+                }
+            }
+        }
+        for (let j = 0; j < n; j++) {
+            while (arr1_2[j].length < n) {
+                arr1_2[j].unshift(0)
+            }
+        }
+
+        for (let p = 0; p < n; p++) {
+            arr2_2[p] = [];
+            while (true) {
+                if (arr2[p] == 1) {
+                    arr2_2[p].unshift(1)
+                    break;
+                } else if (arr1[i] == 0) {
+                    arr1_2[i].unshift(0)
+                    break;
+                } else {
+                    arr2_2[p].unshift(arr2[p] % 2)
+                    arr2[p] = Math.floor(arr2[p] / 2)
+                }
+            }
+        }
+        for (let m = 0; m < n; m++) {
+            while (arr2_2[m].length < n) {
+                arr2_2[m].unshift(0)
+            }
+        }
+        let answer = [];
+        let map = "";
+        for (let a = 0; a < n; a++) {
+            map = "";
+            for (let b = 0; b < n; b++) {
+                if (arr1_2[a][b] + arr2_2[a][b] == 0) map += " ";
+                else if (arr1_2[a][b] + arr2_2[a][b] != 0) map += "#"
+            }
+            answer.push(map)
+        }
+        console.log(answer)
+    </script>
+
+</body>
+
+</html>
