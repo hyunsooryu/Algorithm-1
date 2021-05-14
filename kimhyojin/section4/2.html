@@ -32,18 +32,21 @@
       function solution(arr) {
         let answer = [];
         let reverse_answer = [];
-        arr = arr.toString();
-        arr = arr.split(",");
+
+        arr = arr.toString(); // 문자열로 바꾼 후
+        arr = arr.split(","); // , 를 기준으로 자른다
         for (let i = 0; i < arr.length; i++) {
           for (let j = 0; j < arr[i].length; j++) {
-            reverse_answer[i] += arr[i][arr[i].length - j - 1];
+            reverse_answer[i] += arr[i][arr[i].length - j - 1]; // 주어진 배열을 거꾸로 뒤집기
           }
-          reverse_answer[i] = reverse_answer[i].replace(/[a-z]/g, "");
+          reverse_answer[i] = reverse_answer[i].replace(/[a-z]/g, ""); // 이걸 안하면 undefined가 앞에 붙는다. 왜지?
+          reverse_answer[i] = reverse_answer[i].replace(/^0/g, ""); // 앞의 0 제거
           reverse_answer[i] = reverse_answer[i].replace(/^0/g, "");
-          reverse_answer[i] = reverse_answer[i].replace(/^0/g, "");
+          // 0제거를 두번만 했는데 일반화 시킬 수 있는 방법이 필요하다.
         }
         console.log(reverse_answer);
 
+        // 소수일 때만 answer에 넣기
         for (let i = 0; i < arr.length; i++) {
           if (isPrime(Number(reverse_answer[i])) === true) {
             answer.push(reverse_answer[i]);
