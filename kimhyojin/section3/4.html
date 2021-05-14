@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s, t) {
+        let answer = [];
+        let n = s.length;
+        let index_t = [];
+        let distance = [];
+
+        // t가 있는 index(index_t) 찾기
+        for (let i = 0; i < n; i++) {
+          if (s.charAt(i) === t) {
+            index_t.push(i);
+          }
+        }
+
+        // t가 있는 index와 s의 index의 차(distance) 계산
+        for (let i = 0; i < n; i++) {
+          for (let j = 0; j < index_t.length; j++) {
+            distance[j] = Math.abs(index_t[j] - i); // 절댓값 구하기
+          }
+          answer.push(Math.min.apply(null, distance)); // 배열 내 최솟값 찾기
+        }
+
+        return answer;
+      }
+      // 10121012210
+      let str = "teachermode";
+      console.log(solution(str, "e"));
+    </script>
+  </body>
+</html>
