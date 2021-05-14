@@ -6,8 +6,8 @@
   <body>
     <script>
       function solution(n, arr) {
-        let answer,
-          max = Number.MIN_SAFE_INTEGER,
+        let answer = [];
+        let max = Number.MIN_SAFE_INTEGER,
           max_equal = Number.MAX_SAFE_INTEG;
         let sum = 0;
         let sum_array = [];
@@ -29,14 +29,11 @@
 
         for (let i = 0; i < arr.length; i++) {
           if (max === sum_array[i]) {
-            //max_equal = arr[i];
-            if (max_equal < sum_array[i]) {
-              answer = arr[i];
-            } else {
-              answer = arr[i];
-            }
+            answer.push(arr[i]);
           }
         }
+
+        answer = Math.max.apply(null, answer);
 
         return answer;
       }
