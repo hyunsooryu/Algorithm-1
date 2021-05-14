@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = "YES";
+        let n = s.length;
+        let regExp = /[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi;
+
+        s = s.replace(regExp, ""); // 특수문자 제거
+        s = s.replace(/ /g, ""); // 공백제거
+        s = s.toLowerCase(); // 모두 소문자로
+        n = s.length; // 정제된 문자열의 길이
+        console.log(s);
+
+        for (let i = 0; i < Math.floor(n / 2); i++) {
+          if (s.charAt(i) != s.charAt(n - i - 1)) answer = "NO";
+          console.log(s.charAt(i), ",", s.charAt(n - i - 1));
+        }
+        return answer;
+      }
+
+      let str = "lfound7, time: study; Yduts; emit, 7Dnuofl";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
