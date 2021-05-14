@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = "YES";
+        let cnt = 0;
+        s = s.toLowerCase();
+        n = s.length;
+        for (let i = 0; i < Math.floor(n / 2); i++) {
+          if (s.charAt(i) === s.charAt(n - i - 1)) cnt++;
+        }
+        if (cnt === Math.floor(n / 2)) answer = "YES";
+        else answer = "NO";
+
+        return answer;
+      }
+
+      let str = "gooooG";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
