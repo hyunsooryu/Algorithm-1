@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(s) {
+            let answer;
+            let vote = new Map();
+            for (let x of s) {
+                if (vote.has(x)) {
+                    vote.set(x, vote.get(x) + 1);
+                } else {
+                    vote.set(x, 1);
+                }
+            }
+            let max = 0;
+            for (let [key, val] of vote) {
+                if (max < val) {
+                    max = val
+                    answer = key
+                }
+            }
+
+
+            return answer;
+        }
+
+        let str = "BACBACCACCBDEDE";
+        console.log(solution(str));
+    </script>
+</body>
+
+</html>
