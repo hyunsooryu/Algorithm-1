@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(test) {
+        let answer = 0;
+        let n = test.length; //3
+        let m = test[0].length; //4
+        let pair = []; // 모든 가능한 멘토-멘티 쌍
+        let new_pair = []; // 중복 제거된 배열
+
+        // 모든 가능한 멘토-멘티 쌍 배열 생성 = pair
+        for (let i = 0; i < n; i++) {
+          for (let j = 0; j < m - 1; j++) {
+            pair.push(test[i][j].toString() + test[i][j + 1].toString());
+            if (j === 0 || j === 1)
+              pair.push(test[i][j].toString() + test[i][j + 2].toString());
+            if (j === 0)
+              pair.push(test[i][j].toString() + test[i][j + 3].toString());
+          }
+        }
+
+        // 중복 제거된 배열 = new_pair
+        for (let i = 0; i < pair.length; i++) {
+          if (new_pair.indexOf(pair[i]) === -1) new_pair.push(pair[i]);
+        }
+
+        // 모든 가능한 멘토-멘티 쌍 배열에서 어떤 값이 얼마나 중복 되었는지 구하기 = result
+        let result = {};
+        pair.forEach((x) => {
+          result[x] = (result[x] || 0) + 1;
+        });
+
+        // result에서 n번(arr의 길이)만큼 중복된 값의 개수를 세기
+        for (let i = 0; i < new_pair.length; i++) {
+          if (result[new_pair[i]] === n) {
+            answer++;
+          }
+        }
+
+        return answer;
+      }
+
+      let arr = [
+        [3, 4, 1, 2],
+        [4, 3, 2, 1],
+        [3, 1, 4, 2],
+      ];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
