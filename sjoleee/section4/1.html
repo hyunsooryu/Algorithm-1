@@ -1,0 +1,86 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(n, arr) {
+
+            /*
+                //각 숫자의 자리값들 합 구하기
+                let answer = '';
+                let sum = 0;
+                let sumArray = [];
+                let max = 0;
+                for(let i = 0; i < n; i++){
+                    for(let j = 0; j < String(arr[i]).length; j++){
+                        sum += Number(String(arr[i])[j]);
+                    }
+                    sumArray.push(sum)
+                    if(sumArray[i - 1] <= sumArray[i]){
+                        max = sumArray[i]
+                    }
+                    sum = 0;
+                }
+
+                let cnt = 0;
+                for(let n = 0; n < sumArray.length; n++){
+                    if(max == sumArray[n]){
+                        cnt += 1
+                    }
+                }
+                let maxArr = [];
+                //제일 큰 값이 유일할 때
+                if(cnt == 1){
+                    answer = arr[sumArray.indexOf(max)]
+                }
+                // 제일 큰 값이 여러개일 때                
+                else if(cnt != 1){
+                    for(let m = 0; m < sumArray.length; m++){
+                        if(max == sumArray[m]){
+                            maxArr.push(arr[m])
+                        }
+                    }
+                    answer = maxArr[0]
+                    for(let p = 0; p < maxArr.length; p++){
+                        if(answer < maxArr[p]){
+                            answer = maxArr[p]
+                        }
+                    }
+
+                }
+
+
+
+                return answer;
+            }*/
+
+            //해설풀이
+
+            let answer = 0;
+            let max = 0;
+            for (let x of arr) {
+                let sum = 0;
+                let temp = x;
+                while (temp != 0) {
+                    sum += temp % 10;
+                    temp = Math.floor(temp / 10)
+                }
+                if (max < sum) {
+                    max = sum;
+                    answer = x;
+                } else if (max == sum) {
+                    if (answer < x) answer = x;
+                }
+
+            }
+            return answer;
+        }
+
+        let arr = [128, 460, 603, 40, 521, 137, 123];
+        console.log(solution(7, arr));
+    </script>
+</body>
