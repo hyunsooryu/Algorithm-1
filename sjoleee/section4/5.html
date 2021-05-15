@@ -17,6 +17,14 @@
                     }
                 }
             }
+            plus.sort(function(a, b) {
+                return b - a;
+            });
+            let sorted = [];
+            for (let k = 0; k < plus.length; k++) {
+                if (sorted.indexOf(plus[k]) == -1) sorted.push(plus[k])
+            }
+            answer = sorted[2]
             return answer;
         }
 
