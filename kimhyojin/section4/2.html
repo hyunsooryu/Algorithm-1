@@ -39,12 +39,17 @@
           for (let j = 0; j < arr[i].length; j++) {
             reverse_answer[i] += arr[i][arr[i].length - j - 1]; // 주어진 배열을 거꾸로 뒤집기
           }
+
           reverse_answer[i] = reverse_answer[i].replace(/[a-z]/g, ""); // 이걸 안하면 undefined가 앞에 붙는다. 왜지?
-          reverse_answer[i] = reverse_answer[i].replace(/^0/g, ""); // 앞의 0 제거
-          reverse_answer[i] = reverse_answer[i].replace(/^0/g, "");
-          // 0제거를 두번만 했는데 일반화 시킬 수 있는 방법이 필요하다.
+
+          //reverse_answer[i] = reverse_answer[i].replace(/^0/g, ""); // 앞의 0 제거
+          do {
+            //reverse_answer[i] = reverse_answer[i].replace(/^0/g, "");
+            reverse_answer[i] = reverse_answer[i].splice(0, 1);
+          } while (reverse_answer[i][0] == 0);
         }
         console.log(reverse_answer);
+        console.log(reverse_answer[3][0]);
 
         // 소수일 때만 answer에 넣기
         for (let i = 0; i < arr.length; i++) {

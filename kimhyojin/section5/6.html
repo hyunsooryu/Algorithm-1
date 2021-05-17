@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer;
+        let unduplicate_s = [];
+        let duplicate_index = [0, 0, 0, 0, 0];
+
+        for (let i = 0; i < s.length; i++) {
+          if (unduplicate_s.indexOf(s[i]) === -1) unduplicate_s.push(s[i]);
+        }
+
+        unduplicate_s.sort(); // ["A", "B", "C", "D", "E"]
+
+        // 얼마나 중복되었는지 개수를 나타내는 배열
+        for (let i = 0; i < s.length; i++) {
+          for (let j = 0; j < unduplicate_s.length; j++) {
+            if (s.charAt(i) === unduplicate_s[j]) {
+              duplicate_index[unduplicate_s.indexOf(s.charAt(i))]++;
+            }
+          }
+        }
+
+        // 중복 개수를 나타내는 배열에서 최고 값의 index
+        let max_index = Math.max.apply(null, duplicate_index);
+
+        answer = unduplicate_s[duplicate_index.indexOf(max_index)];
+
+        return answer;
+      }
+
+      let str = "BACBACCACCBDEDE";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
