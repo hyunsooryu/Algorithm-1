@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr1, arr2) {
+        let answer = [];
+        let sum = [];
+
+        for (let x of arr1) {
+          sum.push(x);
+        }
+        for (let x of arr2) {
+          sum.push(x);
+        }
+
+        sum.sort();
+
+        console.log(sum);
+        for (let x of sum) {
+          if (sum.indexOf(x) !== sum.lastIndexOf(x)) {
+            if (answer.includes(sum[x]) === false) {
+              answer.push(sum[x]);
+            }
+          }
+        }
+
+        return answer;
+      }
+
+      let a = [1, 3, 9, 5, 2];
+      let b = [3, 2, 5, 7, 8];
+      console.log(solution(a, b));
+    </script>
+  </body>
+</html>
