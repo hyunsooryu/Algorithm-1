@@ -6,11 +6,9 @@
   <body>
     <script>
       function solution(m, arr) {
-        let answer = 0,
-          lt = 0;
-
+        let answer = 0
+   
         for (let i = 0; i < arr.length; i++) {
-          let start = arr[i];
           let sum = 0;
           for (let j = i; j < arr.length; j++) {
             sum += arr[j];
