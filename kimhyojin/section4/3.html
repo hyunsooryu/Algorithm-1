@@ -22,6 +22,7 @@
               pair.push(test[i][j].toString() + test[i][j + 3].toString());
           }
         }
+        console.log(pair);
 
         // 중복 제거된 배열 = new_pair
         for (let i = 0; i < pair.length; i++) {
@@ -33,6 +34,7 @@
         pair.forEach((x) => {
           result[x] = (result[x] || 0) + 1;
         });
+        console.log(result);
 
         // result에서 n번(arr의 길이)만큼 중복된 값의 개수를 세기
         for (let i = 0; i < new_pair.length; i++) {
