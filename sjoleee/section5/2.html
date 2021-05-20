@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(arr1, arr2) {
+            let answer = [];
+            let obj1 = new Map();
+            for (let x of arr1) {
+                obj1.set(x, true)
+            }
+            for (let y of arr2) {
+                if (obj1.get(y) == true) answer.push(y)
+            }
+            answer.sort(function(a, b) {
+                return a - b
+            })
+            return answer;
+        }
+
+        let a = [1, 3, 9, 5, 2];
+        let b = [3, 2, 5, 7, 8];
+        console.log(solution(a, b));
+    </script>
+</body>
+
+</html>

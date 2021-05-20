@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(s, t) {
+            let answer = 0;
+            let length = t.length
+            let arr = [];
+            let tmp = '';
+            for (let i = 0; i <= s.length - length; i++) {
+                tmp = '';
+                for (let j = i; j < i + length; j++) {
+                    tmp += a[j]
+                }
+                arr.push(tmp)
+            }
+
+            let obj = new Map();
+            for (let x of t) {
+                if (obj.has(x) == true) obj.set(x, obj.get(x) + 1)
+                else obj.set(x, 1)
+            }
+
+            function count(str, arr) {
+                let cnt = 0;
+                for (let k = 0; k < arr.length; k++) {
+                    if (arr[k] == str) cnt++
+                }
+                return cnt
+
+            }
+            let cnt2 = 0;
+            for (let y of arr) {
+                cnt2 = 0
+                for (let z of y) {
+                    if (obj.has(z) == false) break;
+                    else if (obj.get(z) != count(z, y)) break;
+                    else cnt2++
+                }
+                if (cnt2 == length) answer++
+            }
+            return answer;
+        }
+
+        let a = "bacaAacba";
+        let b = "abc";
+        console.log(solution(a, b));
+    </script>
+</body>
+
+</html>
