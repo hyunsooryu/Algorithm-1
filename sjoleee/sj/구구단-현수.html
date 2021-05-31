@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="/http://www.naver.com">s&g</h2>
+
+    <script type="text/javascript">
+        let trying = prompt("구구단을 몇번 풀고 싶으신가요??");
+        let i = 0;
+        let left = Math.floor(Math.random() * 9) + 1;
+        let right = Math.floor(Math.random() * 9) + 1;
+        let ans = prompt("구구단을 외자! 구구단을 외자!" + left + " X " + right + " = ?");
+        let result = left * right;
+        while(true){
+            if(ans == result){
+                left = Math.floor(Math.random() * 9) + 1;
+                right = Math.floor(Math.random() * 9) + 1;
+                result = left * right;
+                ans = prompt("정답입니다!\n" + "구구단을 외자! 구구단을 외자!" + left + " X " + right + " = ?");           
+            }else{
+                ans = prompt("오답입니다!\n" + "구구단을 외자! 구구단을 외자!" + left + " X " + right + " = ?");
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -10,20 +10,22 @@
         function solution(test) {
             let student = [];
             let answer = 0;
-            for (let i = 1; i < arr[0].length + 1; i++) {
-                for (let j = 1; j < arr[0].length + 1; j++) {
+            //가능한 모든 멘토멘티 조합
+            for (let i = 1; i < test[0].length + 1; i++) {
+                for (let j = 1; j < test[0].length + 1; j++) {
                     student.push([i, j])
                 }
             }
-
+            console.log(student)
+                //각 경우마다 검증 - 모든 시험에서 멘토가 멘티보다 잘했는지
             let cnt = 0;
             for (let m = 0; m < student.length; m++) {
-                for (let n = 0; n < arr.length; n++) {
-                    if (arr[n].indexOf(student[m][0]) < arr[n].indexOf(student[m][1])) {
+                for (let n = 0; n < test.length; n++) {
+                    if (test[n].indexOf(student[m][0]) < test[n].indexOf(student[m][1])) {
                         cnt += 1;
                     }
                 }
-                if (cnt == 3) {
+                if (cnt == test.length) {
                     answer += 1
                     cnt = 0
                 } else {
