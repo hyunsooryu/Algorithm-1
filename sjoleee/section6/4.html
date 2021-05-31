@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(s) {
+            let answer;
+            let stack = [];
+            let popped1, popped2;
+            for (let i = 0; i < s.length; i++) {
+                if (s[i] == '+') {
+                    popped1 = Number(stack.pop())
+                    popped2 = Number(stack.pop())
+                    stack.push(popped2 + popped1)
+                } else if (s[i] == '-') {
+                    popped1 = Number(stack.pop())
+                    popped2 = Number(stack.pop())
+                    stack.push(popped2 - popped1)
+                } else if (s[i] == '*') {
+                    popped1 = Number(stack.pop())
+                    popped2 = Number(stack.pop())
+                    stack.push(popped2 * popped1)
+                } else if (s[i] == '/') {
+                    popped1 = Number(stack.pop())
+                    popped2 = Number(stack.pop())
+                    stack.push(popped2 / popped1)
+                } else stack.push(s[i])
+            }
+            console.log(stack)
+            return answer;
+        }
+
+        let str = "352+*9-";
+        console.log(solution(str));
+    </script>
+</body>
+
+</html>
