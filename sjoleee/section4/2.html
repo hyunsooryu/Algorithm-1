@@ -8,19 +8,20 @@
 <body>
     <script>
         function isPrime(num) {
-            let check = Number(String(num).split("").reverse().join(""))
-            for (let i = 2; i < check; i++) {
-                if (check % i == 0) return false;
+            for (let i = 2; i < num; i++) {
+                if (num % i == 0) return false;
             }
-            if (check == 1) return false;
+            if (num == 1) return false;
             return true;
         }
-        //answer.push(Number(String(x).split("").reverse().join("")))
+        console.log(isPrime(4))
+
         function solution(arr) {
             let answer = [];
             for (let x of arr) {
-                if (isPrime == true) {
-                    answer.push(Number(String(x).split("").reverse().join("")))
+                let reverse = Number(String(x).split("").reverse().join(""))
+                if (isPrime(reverse) == true) {
+                    answer.push(reverse)
                 }
             }
             return answer;
