@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let n = 5;
+        let lost = [1, 2];
+        let reserve = [2, 5];
+        let answer = 0;
+        answer = n - lost.length;
+
+        let obj = new Map();
+        for (let i = 0; i < reserve.length; i++) {
+            obj.set(reserve[i], true)
+            for (let j = 0; j < lost.length; j++) {
+                if (lost[j] == reserve[i]) {
+                    obj.set(reserve[i], false)
+                    break;
+                }
+            }
+        }
+        for (let x of lost) {
+            if (obj.get(x) == false) {
+                answer++;
+            } else if (obj.get(x - 1) == true) {
+                obj.set(x - 1, false)
+                answer++;
+            } else if (obj.get(x + 1) == true) {
+                obj.set(x + 1, false)
+                answer++;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
