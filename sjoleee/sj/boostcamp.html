@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [1, 2, 3, 3, 3, 3, 4, 4, 5];
+        let answer = [];
+
+        let obj = new Map();
+        for (let x of arr) {
+            if (obj.has(x) == false) obj.set(x, 1);
+            else if (obj.has(x) == true) obj.set(x, obj.get(x) + 1);
+        }
+
+        let tmp = new Set(arr);
+        let unique_arr = Array.from(tmp);
+
+        for (let y of unique_arr) {
+            if (obj.get(y) > 1) answer.push(obj.get(y))
+        }
+        console.log(answer)
+    </script>
+
+</body>
+
+</html>

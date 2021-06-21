@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let participant = ["mislav", "stanko", "mislav", "ana"];
+        let completion = ["stanko", "ana", "mislav"];
+        let answer = '';
+
+        let obj = new Map();
+
+        for (let x of participant) {
+            if (obj.has(x) == true) obj.set(x, obj.get(x) + 1);
+            else obj.set(x, 1);
+        }
+        for (let y of completion) {
+            obj.set(y, obj.get(y) - 1);
+            if (obj.get(y) == 0) obj.delete(y);
+        }
+        for (let z of obj.keys()) answer = z;
+        console.log(answer)
+    </script>
+
+</body>
+
+</html>
