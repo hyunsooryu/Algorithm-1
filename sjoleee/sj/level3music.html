@@ -1,0 +1,77 @@
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(genres, plays) {
+            var answer = [];
+            //obj 안에 key = 고유번호, value = 장르와 재생수를 집어넣었고, obj_playtimes 안에 장르별 재생수 합계 넣음
+            // let obj = new Map();
+            // let obj_playtimes = new Map();
+            // for (let i = 0; i < genres.length; i++) {
+            //     obj.set(i, [genres[i], plays[i]]);
+            //     if (obj_playtimes.has(genres[i]) == false)
+            //         obj_playtimes.set(genres[i], plays[i]);
+            //     else if (obj_playtimes.has(genres[i]) == true)
+            //         obj_playtimes.set(
+            //             genres[i],
+            //             obj_playtimes.get(genres[i]) + plays[i],
+            //         );
+            // }
+            // console.log(obj_playtimes);
+            // console.log(obj);
+
+            //obj_playtimes를 활용해서 장르별 재생수 총합순 정렬과 장르별 고유번호와 재생수 객체 만듦
+
+            let arr = [];
+            for (let i = 0; i < genres.length; i++) {
+                arr[i] = new Object();
+                arr[i].genres = genres[i]
+                arr[i].plays = plays[i]
+            }
+            console.log(arr)
+
+            //장르 중복제거한 값
+            let genres_sort = new Set(genres);
+            let arr_genres_sort = Array.from(genres_sort);
+            console.log(arr_genres_sort);
+
+            let arr_playtimes = [];
+            let cnt = 0;
+
+            for (let j = 0; j < arr_genres_sort.length; j++) {
+                for (let k = 0; k < arr.length; k++) {
+                    if (arr[k].genres == arr_genres_sort[j]) cnt += arr[k].plays
+                }
+                arr_playtimes.push(cnt)
+                cnt = 0;
+            }
+            console.log(arr_playtimes)
+
+
+
+
+            // //장르별로 총 재생횟수 구해서 객체에 넣음
+            // let cnt = 0;
+            // let playtimes = new Map();
+            // for (let x of arr_genres_sort) {
+            //   for (let j = 0; j < obj.size; j++) {
+            //     if (obj.get(j)[0] == x) cnt += obj.get(j)[1];
+            //   }
+            //   playtimes.set(x, cnt);
+            //   cnt = 0;
+            // }
+
+            return answer;
+        }
+        let a = ['classic', 'pop', 'classic', 'classic', 'pop'];
+        let b = [500, 600, 150, 800, 2500];
+        console.log(solution(a, b));
+    </script>
+</body>
+
+</html>
