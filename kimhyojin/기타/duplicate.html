@@ -7,8 +7,8 @@
     <script>
       function solution(arr) {
         let answer = [];
-        let set = new Set(arr);
-        let uniqueArr = [...set];
+        let uniqueArr = new Set([arr]);
+        //let uniqueArr = [...set];
 
         for (let i of uniqueArr) {
           let count = 0;
